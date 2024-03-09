@@ -16,7 +16,7 @@ public class LicencePlateUtils {
         throw new IllegalArgumentException("A placa do veículo a ser validada não foi fornecido, tente novamente");
 
         licence = licence.replaceAll("[^\\p{Alnum}]", "").toUpperCase();
-
+        
         return licence.length() == 7;
     }
 

@@ -47,11 +47,11 @@ public class DAO<E> {
         return this;
     }
 
-    private DAO<E> addAtomicTransaction(E entity){
+    public DAO<E> addAtomicTransaction(E entity){
         return this.startTransaction().addTransaction(entity).commitTransaction();
     }
 
-    private DAO<E> updateAtomicTransaction(E entity){
+    public DAO<E> updateAtomicTransaction(E entity){
         return this.startTransaction().mergeTransaction(entity).commitTransaction();
     }
 

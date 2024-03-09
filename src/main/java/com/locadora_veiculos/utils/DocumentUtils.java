@@ -14,7 +14,7 @@ public class DocumentUtils {
     }
 
     public static Boolean isValidDocument(String document){
-        if(document.isBlank() || document == null) 
+        if(document == null || document.isBlank()) 
         throw new IllegalArgumentException("O documento a ser validado não foi fornecido, tente novamente");
         
         String documentCopy = document;

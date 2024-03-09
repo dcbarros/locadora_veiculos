@@ -1,6 +1,7 @@
 package com.locadora_veiculos.model;
 
 import com.locadora_veiculos.model.interfaces.ClientIdentificator;
+import com.locadora_veiculos.utils.DocumentUtils;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,13 +11,14 @@ public class Client {
 
     @Id
     private String id;
-
+    private ClientIdentificator identificator;
     private String name;
     private String cep;
     private String complement;
 
     public Client(ClientIdentificator identificator, String name, String cep, String complement) {
-        this.id = identificator.getIdentificator();
+        this.identificator = identificator;
+        this.id = DocumentUtils.convertDocumentToId(identificator.getIdentificator());
         this.name = name;
         this.cep = cep;
         this.complement = complement;
@@ -52,6 +54,14 @@ public class Client {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public ClientIdentificator getIdentificator() {
+        return identificator;
+    }
+
+    public void setIdentificator(ClientIdentificator identificator) {
+        this.identificator = identificator;
     }
     
 }
